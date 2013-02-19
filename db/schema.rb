@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130213233246) do
+ActiveRecord::Schema.define(:version => 20130219200458) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "event_type"
     t.string   "address"
     t.string   "city"
     t.string   "zip_code"
@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(:version => 20130213233246) do
     t.string   "city"
     t.string   "zip_code"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "phone_number", :limit => 255
   end
 
 end

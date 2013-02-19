@@ -26,6 +26,11 @@
 </p>
 
 <p>
+  <b>Phone Number:</b>
+  <%= number_to_phone(@user.phone_number, area_code: true) %>
+</p>
+
+<p>
   <b>Email:</b>
   <%= @user.email %>
 </p>
