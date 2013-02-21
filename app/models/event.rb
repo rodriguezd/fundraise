@@ -14,7 +14,7 @@
 #
 
 class Event < ActiveRecord::Base
-  attr_accessible :event_name, :address, :city, :event_type, :zip_code
+  attr_accessible :event_name, :address, :city, :event_type, :zip_code, :user_id
 
   belongs_to :user
 

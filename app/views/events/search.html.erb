@@ -1,0 +1,17 @@
+<h1>Event Search</h1>
+<%= form_tag events_search_results_path do %>
+  <p>
+    <%= label_tag :event_type %><br />
+    <%= text_field_tag :event_type %>
+  </p>
+  <p>
+    <%= label_tag :city %><br />
+    <%= text_field_tag :city %>
+  </p>
+  <p>
+    <%= label_tag :zip_code %><br />
+    <%= text_field_tag :zip_code %>
+  </p>
+  <p class="button"><%= submit_tag "Search" %></p>
+<% end %>
+<%= link_to 'Back', events_path %>

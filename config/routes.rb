@@ -1,6 +1,9 @@
 Fundraise::Application.routes.draw do
   # get "sessions/new"
 
+  get "events/search" => "events#search", :as => "events_search"
+  post "events/search_results" => "events#search_results", :as => "events_search_results"
+
   resources :events
   resources :users
   resources :sessions
@@ -8,6 +11,8 @@ Fundraise::Application.routes.draw do
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

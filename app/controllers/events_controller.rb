@@ -80,4 +80,29 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def search
+
+  end
+
+  def search_results
+    if !params[:event_type].blank? && !params[:zip_code].blank?
+      @events = Event.where(:event_type => params[:event_type],
+                            :zip_code => params[:zip_code])
+    elsif !params[:event_type].blank? && !params[:city].blank?
+      @events = Event.where(:event_type => params[:event_type],
+                            :city => params[:city])
+    elsif !params[:event_type].blank?
+      @events = Event.where(:event_type => params[:event_type])
+    elsif !params[:zip_code].blank?
+      @events = Event.where(:zip_code => params[:zip_code])
+    elsif !params[:city].blank?
+      @events = Event.where(:city => params[:city])
+    elsif !params[:user_id].blank?
+      @events = Event.where(:user_id => params[:user_id])
+    end
+
+    render 'events/index'
+  end
+
 end

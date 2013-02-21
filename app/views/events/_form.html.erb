@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :event_name %><br />
+    <%= f.text_field :event_name %>
   </div>
   <div class="field">
     <%= f.label :event_type %><br />
@@ -31,6 +31,7 @@
     <%= f.label :zip_code %><br />
     <%= f.text_field :zip_code %>
   </div>
+    <%= f.hidden_field :user_id, :value => session[:user_id] %>
   <div class="actions">
     <%= f.submit %>
   </div>
