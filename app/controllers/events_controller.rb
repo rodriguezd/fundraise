@@ -3,11 +3,13 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @title = 'Lisitng of All Events'
+    render 'list_events'
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-    end
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render json: @events }
+    # end
   end
 
   # GET /events/1
@@ -86,6 +88,7 @@ class EventsController < ApplicationController
   end
 
   def search_results
+    @title = 'Search Results'
     if !params[:event_type].blank? && !params[:zip_code].blank?
       @events = Event.where(:event_type => params[:event_type],
                             :zip_code => params[:zip_code])
@@ -99,10 +102,11 @@ class EventsController < ApplicationController
     elsif !params[:city].blank?
       @events = Event.where(:city => params[:city])
     elsif !params[:user_id].blank?
+      @title = "#{User.find(session[:user_id]).first_name}'s Events"
       @events = Event.where(:user_id => params[:user_id])
     end
 
-    render 'events/index'
+    render 'events/list_events'
   end
 
 end
