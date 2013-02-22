@@ -11,11 +11,21 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer
+#  state      :string(255)
+#  latitude   :float
+#  longitude  :float
+#  gmaps      :boolean
 #
 
 class Event < ActiveRecord::Base
-  attr_accessible :event_name, :address, :city, :event_type, :zip_code, :user_id
+	acts_as_gmappable
+
+  attr_accessible :event_name, :address, :city, :state, :event_type, :zip_code, :user_id
 
   belongs_to :user
+
+  def gmaps4rails_address
+  	"#{self.address}, #{self.city}, #{self.state}, #{self.zip_code}"
+  end
 
 end

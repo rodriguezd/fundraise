@@ -14,11 +14,12 @@
 #  phone_number  :integer
 #  password_hash :string(255)
 #  password_salt :string(255)
+#  state         :string(255)
 #
 
 class User < ActiveRecord::Base
 
-  attr_accessible :address, :city, :email, :first_name, :last_name, :phone_number,
+  attr_accessible :address, :city, :state, :email, :first_name, :last_name, :phone_number,
   	:zip_code, :password, :password_confirmation
 
   	attr_accessor :password

@@ -84,7 +84,6 @@ class EventsController < ApplicationController
   end
 
   def search
-
   end
 
   def search_results
@@ -105,8 +104,12 @@ class EventsController < ApplicationController
       @title = "#{User.find(session[:user_id]).first_name}'s Events"
       @events = Event.where(:user_id => params[:user_id])
     end
-
+    @json = @events.to_gmaps4rails do |event, marker|
+      marker.title "#{event.event_name}"
+    end
     render 'events/list_events'
   end
+
+
 
 end
