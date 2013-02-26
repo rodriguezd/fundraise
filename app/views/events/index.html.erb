@@ -1,5 +1,3 @@
-<!-- This view is no longer used. To be removed. -->
-
 <h1><%= @title %> </h1>
 
 <table>
@@ -24,8 +22,10 @@
     <td><%= event.state %></td>
     <td><%= event.zip_code %></td>
     <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if event.user_id == session[:user_id] %>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
@@ -33,5 +33,5 @@
 <br />
 
 <%= link_to 'New Event', new_event_path %>
-<%= link_to 'Search', events_search_path %>
+<%= link_to 'Search Events', events_search_path %>
 <%= link_to 'My Events', events_search_results_path(:params => {:user_id => session[:user_id]}), :method => 'post' %>

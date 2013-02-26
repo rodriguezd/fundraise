@@ -4,12 +4,12 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @title = 'Lisitng of All Events'
-    render 'list_events'
+    # render 'list_events'
 
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.json { render json: @events }
-    # end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
   end
 
   # GET /events/1
