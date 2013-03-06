@@ -20,7 +20,11 @@
 class Event < ActiveRecord::Base
 	acts_as_gmappable
 
-  attr_accessible :event_name, :address, :city, :state, :event_type, :zip_code, :user_id
+  attr_accessible :event_name, :address, :city, :state, :event_type, :zip_code,
+  								:user_id
+
+  validates_presence_of :event_name, :event_type, :address, :city, :state,
+  											:zip_code
 
   belongs_to :user
 
