@@ -15,6 +15,7 @@
 #  password_hash :string(255)
 #  password_salt :string(255)
 #  state         :string(255)
+#  admin         :boolean
 #
 
 require 'spec_helper'

@@ -22,7 +22,7 @@
     <td><%= event.state %></td>
     <td><%= event.zip_code %></td>
     <td><%= link_to 'Show', event %></td>
-    <% if event.user_id == session[:user_id] %>
+    <% if event.user_id == current_user.id || current_user.admin? %>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>

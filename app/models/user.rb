@@ -15,6 +15,7 @@
 #  password_hash :string(255)
 #  password_salt :string(255)
 #  state         :string(255)
+#  admin         :boolean
 #
 
 class User < ActiveRecord::Base
@@ -24,10 +25,6 @@ class User < ActiveRecord::Base
 
 	attr_accessor :password
 	before_save :encrypt_password
-
-  before_validation do
-    phone = phone.to_s.gsub(/\D/, '').to_i
-  end
 
   validates_presence_of :first_name, :last_name, :address, :city, :state, :zip_code,
                         :phone_number
