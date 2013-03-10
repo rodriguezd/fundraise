@@ -35,3 +35,4 @@
 <%= link_to 'New Event', new_event_path %>
 <%= link_to 'Search Events', events_search_path %>
 <%= link_to 'My Events', events_search_results_path(:params => {:user_id => session[:user_id]}), :method => 'post' %>
+<%= link_to 'Home', home_path %>

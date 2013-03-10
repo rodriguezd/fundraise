@@ -1,5 +1,9 @@
 <h1>Fundraise</h1>
 <p>Help out a good cause.</p>
 <br />
+<% if current_user  %>
 <%= link_to 'My Events', events_search_results_path(:params => {:user_id => session[:user_id]}), :method => 'post' %>
 <%= link_to 'Search Events', events_search_path %>
+<%= link_to 'About Us', about_path %>
+<%= link_to 'Contact Us', contact_path %>
+<% end %>
