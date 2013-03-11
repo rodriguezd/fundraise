@@ -2,7 +2,7 @@
 <%= form_tag events_search_results_path do %>
   <p>
     <%= label_tag :event_type %><br />
-    <%= text_field_tag :event_type %>
+    <%= select_tag :event_type, options_for_select(event_types) %>
   </p>
   <p>
     <%= label_tag :city %><br />
