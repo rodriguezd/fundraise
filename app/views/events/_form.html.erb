@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+
+
   <div class="field">
     <%= f.label :event_name %><br />
     <%= f.text_field :event_name %>
@@ -18,6 +20,14 @@
   <div class="field">
     <%= f.label :event_type %><br />
     <%= f.select :event_type, event_types %>
+  </div>
+  <div class="field">
+    <%= f.label :event_date %><br />
+    <%= f.date_select(:event_date, :order => [:month, :day, :year]) %>
+  </div>
+  <div class="field">
+    <%= f.label :event_time %><br />
+    <%= f.time_select(:event_time, :ampm => true) %>
   </div>
   <div class="field">
     <%= f.label :address %><br />
@@ -37,6 +47,6 @@
   </div>
     <%= f.hidden_field :user_id, :value => session[:user_id] %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Event", class: "btn btn-large btn-primary" %>
   </div>
 <% end %>

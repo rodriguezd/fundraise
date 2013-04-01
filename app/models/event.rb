@@ -15,12 +15,14 @@
 #  latitude   :float
 #  longitude  :float
 #  gmaps      :boolean
+#  event_date :date
+#  event_time :time
 #
 
 class Event < ActiveRecord::Base
 	acts_as_gmappable
 
-  attr_accessible :event_name, :address, :city, :state, :event_type, :zip_code,
+  attr_accessible :event_name, :event_date, :event_time, :address, :city, :state, :event_type, :zip_code,
   								:user_id
 
   validates_presence_of :event_name, :event_type, :address, :city, :state,

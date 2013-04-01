@@ -4,10 +4,12 @@
   <tr>
     <th>Event Name</th>
     <th>Event Type</th>
+    <th>Event Date</th>
+    <th>Event Time</th>
     <th>Address</th>
     <th>City</th>
     <th>State</th>
-    <th>Zip code</th>
+    <th>Zip Code</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +19,8 @@
   <tr>
     <td><%= event.event_name %></td>
     <td><%= event.event_type %></td>
+    <td><%= event.event_date.strftime('%b %d %Y') %></td>
+    <td><%= event.event_time.strftime('%l:%M %p') %></td>
     <td><%= event.address %></td>
     <td><%= event.city %></td>
     <td><%= event.state %></td>
@@ -32,9 +36,9 @@
 
 <br />
 
-<%= link_to 'New Event', new_event_path %>
-<%= link_to 'Search Events', events_search_path %>
-<%= link_to 'My Events', events_search_results_path(:params => {:user_id => session[:user_id]}), :method => 'post' %>
+<%= link_to 'New Event', new_event_path %> |
+<%= link_to 'Search Events', events_search_path %> |
+<%= link_to 'My Events', events_search_results_path(:params => {:user_id => session[:user_id]}), :method => 'post' %> |
 <%= link_to 'Home', home_path %>
 <br />
 
