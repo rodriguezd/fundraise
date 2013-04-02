@@ -16,7 +16,7 @@
 #  longitude  :float
 #  gmaps      :boolean
 #  event_date :date
-#  event_time :time
+#  event_time :datetime
 #
 
 require 'spec_helper'
